@@ -1,0 +1,313 @@
+/*  Font Awesome
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/
+
+    License
+    -------------------------------------------------------
+    The Font Awesome webfont, CSS, and LESS files are licensed under CC BY 3.0:
+    http://creativecommons.org/licenses/by/3.0/ A mention of
+    'Font Awesome - http://fortawesome.github.com/Font-Awesome' in human-readable
+    source code is considered acceptable attribution (most common on the web).
+    If human readable source code is not available to the end user, a mention in
+    an 'About' or 'Credits' screen is considered acceptable (most common in desktop
+    or mobile software).
+
+    Contact
+    -------------------------------------------------------
+    Email: dave@davegandy.com
+    Twitter: http://twitter.com/fortaweso_me
+    Work: http://lemonwi.se co-founder
+
+    */
+@font-face {
+  font-family: "FontAwesome";
+  src: url('../font/fontawesome-webfont.eot');
+  src: url('../font/fontawesome-webfont.eot?#iefix') format('eot'),
+    url('http://new.mystickies.com/js/wyg/font/fontawesome-webfont.woff') format('woff'),
+    url('../font/fontawesome-webfont.woff') format('woff'),
+    url('../font/fontawesome-webfont.ttf') format('truetype'),
+    url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*  Font Awesome styles
+    ------------------------------------------------------- */
+[class^="wyg-icon-"]:before, [class*=" wyg-icon-"]:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+}
+a [class^="wyg-icon-"], a [class*=" wyg-icon-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+/* makes the font 33% larger relative to the icon container */
+.wyg-icon-large:before {
+  vertical-align: top;
+  font-size: 1.3333333333333333em;
+}
+button [class^="wyg-icon-"], button [class*=" wyg-icon-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
+}
+li [class^="wyg-icon-"], li [class*=" wyg-icon-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+li .wyg-icon-large[class^="wyg-icon-"], li .wyg-icon-large[class*=" wyg-icon-"] {
+  /* 1.5 increased font size for wyg-icon-large * 1.25 width */
+
+  width: 1.875em;
+}
+li[class^="wyg-icon-"], li[class*=" wyg-icon-"] {
+  margin-left: 0;
+  list-style-type: none;
+}
+li[class^="wyg-icon-"]:before, li[class*=" wyg-icon-"]:before {
+  text-indent: -2em;
+  text-align: center;
+}
+li[class^="wyg-icon-"].wyg-icon-large:before, li[class*=" wyg-icon-"].wyg-icon-large:before {
+  text-indent: -1.3333333333333333em;
+}
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+.wyg-icon-glass:before                { content: "\f000"; }
+.wyg-icon-music:before                { content: "\f001"; }
+.wyg-icon-search:before               { content: "\f002"; }
+.wyg-icon-envelope:before             { content: "\f003"; }
+.wyg-icon-heart:before                { content: "\f004"; }
+.wyg-icon-star:before                 { content: "\f005"; }
+.wyg-icon-star-empty:before           { content: "\f006"; }
+.wyg-icon-user:before                 { content: "\f007"; }
+.wyg-icon-film:before                 { content: "\f008"; }
+.wyg-icon-th-large:before             { content: "\f009"; }
+.wyg-icon-th:before                   { content: "\f00a"; }
+.wyg-icon-th-list:before              { content: "\f00b"; }
+.wyg-icon-ok:before                   { content: "\f00c"; }
+.wyg-icon-remove:before               { content: "\f00d"; }
+.wyg-icon-zoom-in:before              { content: "\f00e"; }
+
+.wyg-icon-zoom-out:before             { content: "\f010"; }
+.wyg-icon-off:before                  { content: "\f011"; }
+.wyg-icon-signal:before               { content: "\f012"; }
+.wyg-icon-cog:before                  { content: "\f013"; }
+.wyg-icon-trash:before                { content: "\f014"; }
+.wyg-icon-home:before                 { content: "\f015"; }
+.wyg-icon-file:before                 { content: "\f016"; }
+.wyg-icon-time:before                 { content: "\f017"; }
+.wyg-icon-road:before                 { content: "\f018"; }
+.wyg-icon-download-alt:before         { content: "\f019"; }
+.wyg-icon-download:before             { content: "\f01a"; }
+.wyg-icon-upload:before               { content: "\f01b"; }
+.wyg-icon-inbox:before                { content: "\f01c"; }
+.wyg-icon-play-circle:before          { content: "\f01d"; }
+.wyg-icon-repeat:before               { content: "\f01e"; }
+
+/* \f020 doesn't work in Safari. all shifted one down */
+.wyg-icon-refresh:before              { content: "\f021"; }
+.wyg-icon-list-alt:before             { content: "\f022"; }
+.wyg-icon-lock:before                 { content: "\f023"; }
+.wyg-icon-flag:before                 { content: "\f024"; }
+.wyg-icon-headphones:before           { content: "\f025"; }
+.wyg-icon-volume-off:before           { content: "\f026"; }
+.wyg-icon-volume-down:before          { content: "\f027"; }
+.wyg-icon-volume-up:before            { content: "\f028"; }
+.wyg-icon-qrcode:before               { content: "\f029"; }
+.wyg-icon-barcode:before              { content: "\f02a"; }
+.wyg-icon-tag:before                  { content: "\f02b"; }
+.wyg-icon-tags:before                 { content: "\f02c"; }
+.wyg-icon-book:before                 { content: "\f02d"; }
+.wyg-icon-bookmark:before             { content: "\f02e"; }
+.wyg-icon-print:before                { content: "\f02f"; }
+
+.wyg-icon-camera:before               { content: "\f030"; }
+.wyg-icon-font:before                 { content: "\f031"; }
+.wyg-icon-bold:before                 { content: "\f032"; }
+.wyg-icon-italic:before               { content: "\f033"; }
+.wyg-icon-text-height:before          { content: "\f034"; }
+.wyg-icon-text-width:before           { content: "\f035"; }
+.wyg-icon-align-left:before           { content: "\f036"; }
+.wyg-icon-align-center:before         { content: "\f037"; }
+.wyg-icon-align-right:before          { content: "\f038"; }
+.wyg-icon-align-justify:before        { content: "\f039"; }
+.wyg-icon-list:before                 { content: "\f03a"; }
+.wyg-icon-outdent:before              { content: "\f03b"; }
+.wyg-icon-indent:before               { content: "\f03c"; }
+.wyg-icon-facetime-video:before       { content: "\f03d"; }
+.wyg-icon-picture:before              { content: "\f03e"; }
+
+.wyg-icon-pencil:before               { content: "\f040"; }
+.wyg-icon-map-marker:before           { content: "\f041"; }
+.wyg-icon-adjust:before               { content: "\f042"; }
+.wyg-icon-tint:before                 { content: "\f043"; }
+.wyg-icon-edit:before                 { content: "\f044"; }
+.wyg-icon-share:before                { content: "\f045"; }
+.wyg-icon-check:before                { content: "\f046"; }
+.wyg-icon-move:before                 { content: "\f047"; }
+.wyg-icon-step-backward:before        { content: "\f048"; }
+.wyg-icon-fast-backward:before        { content: "\f049"; }
+.wyg-icon-backward:before             { content: "\f04a"; }
+.wyg-icon-play:before                 { content: "\f04b"; }
+.wyg-icon-pause:before                { content: "\f04c"; }
+.wyg-icon-stop:before                 { content: "\f04d"; }
+.wyg-icon-forward:before              { content: "\f04e"; }
+
+.wyg-icon-fast-forward:before         { content: "\f050"; }
+.wyg-icon-step-forward:before         { content: "\f051"; }
+.wyg-icon-eject:before                { content: "\f052"; }
+.wyg-icon-chevron-left:before         { content: "\f053"; }
+.wyg-icon-chevron-right:before        { content: "\f054"; }
+.wyg-icon-plus-sign:before            { content: "\f055"; }
+.wyg-icon-minus-sign:before           { content: "\f056"; }
+.wyg-icon-remove-sign:before          { content: "\f057"; }
+.wyg-icon-ok-sign:before              { content: "\f058"; }
+.wyg-icon-question-sign:before        { content: "\f059"; }
+.wyg-icon-info-sign:before            { content: "\f05a"; }
+.wyg-icon-screenshot:before           { content: "\f05b"; }
+.wyg-icon-remove-circle:before        { content: "\f05c"; }
+.wyg-icon-ok-circle:before            { content: "\f05d"; }
+.wyg-icon-ban-circle:before           { content: "\f05e"; }
+
+.wyg-icon-arrow-left:before           { content: "\f060"; }
+.wyg-icon-arrow-right:before          { content: "\f061"; }
+.wyg-icon-arrow-up:before             { content: "\f062"; }
+.wyg-icon-arrow-down:before           { content: "\f063"; }
+.wyg-icon-share-alt:before            { content: "\f064"; }
+.wyg-icon-resize-full:before          { content: "\f065"; }
+.wyg-icon-resize-small:before         { content: "\f066"; }
+.wyg-icon-plus:before                 { content: "\f067"; }
+.wyg-icon-minus:before                { content: "\f068"; }
+.wyg-icon-asterisk:before             { content: "\f069"; }
+.wyg-icon-exclamation-sign:before     { content: "\f06a"; }
+.wyg-icon-gift:before                 { content: "\f06b"; }
+.wyg-icon-leaf:before                 { content: "\f06c"; }
+.wyg-icon-fire:before                 { content: "\f06d"; }
+.wyg-icon-eye-open:before             { content: "\f06e"; }
+
+.wyg-icon-eye-close:before            { content: "\f070"; }
+.wyg-icon-warning-sign:before         { content: "\f071"; }
+.wyg-icon-plane:before                { content: "\f072"; }
+.wyg-icon-calendar:before             { content: "\f073"; }
+.wyg-icon-random:before               { content: "\f074"; }
+.wyg-icon-comment:before              { content: "\f075"; }
+.wyg-icon-magnet:before               { content: "\f076"; }
+.wyg-icon-chevron-up:before           { content: "\f077"; }
+.wyg-icon-chevron-down:before         { content: "\f078"; }
+.wyg-icon-retweet:before              { content: "\f079"; }
+.wyg-icon-shopping-cart:before        { content: "\f07a"; }
+.wyg-icon-folder-close:before         { content: "\f07b"; }
+.wyg-icon-folder-open:before          { content: "\f07c"; }
+.wyg-icon-resize-vertical:before      { content: "\f07d"; }
+.wyg-icon-resize-horizontal:before    { content: "\f07e"; }
+
+.wyg-icon-bar-chart:before            { content: "\f080"; }
+.wyg-icon-twitter-sign:before         { content: "\f081"; }
+.wyg-icon-facebook-sign:before        { content: "\f082"; }
+.wyg-icon-camera-retro:before         { content: "\f083"; }
+.wyg-icon-key:before                  { content: "\f084"; }
+.wyg-icon-cogs:before                 { content: "\f085"; }
+.wyg-icon-comments:before             { content: "\f086"; }
+.wyg-icon-thumbs-up:before            { content: "\f087"; }
+.wyg-icon-thumbs-down:before          { content: "\f088"; }
+.wyg-icon-star-half:before            { content: "\f089"; }
+.wyg-icon-heart-empty:before          { content: "\f08a"; }
+.wyg-icon-signout:before              { content: "\f08b"; }
+.wyg-icon-linkedin-sign:before        { content: "\f08c"; }
+.wyg-icon-pushpin:before              { content: "\f08d"; }
+.wyg-icon-external-link:before        { content: "\f08e"; }
+
+.wyg-icon-signin:before               { content: "\f090"; }
+.wyg-icon-trophy:before               { content: "\f091"; }
+.wyg-icon-github-sign:before          { content: "\f092"; }
+.wyg-icon-upload-alt:before           { content: "\f093"; }
+.wyg-icon-lemon:before                { content: "\f094"; }
+.wyg-icon-phone:before                { content: "\f095"; }
+.wyg-icon-check-empty:before          { content: "\f096"; }
+.wyg-icon-bookmark-empty:before       { content: "\f097"; }
+.wyg-icon-phone-sign:before           { content: "\f098"; }
+.wyg-icon-twitter:before              { content: "\f099"; }
+.wyg-icon-facebook:before             { content: "\f09a"; }
+.wyg-icon-github:before               { content: "\f09b"; }
+.wyg-icon-unlock:before               { content: "\f09c"; }
+.wyg-icon-credit-card:before          { content: "\f09d"; }
+.wyg-icon-rss:before                  { content: "\f09e"; }
+
+.wyg-icon-hdd:before                  { content: "\f0a0"; }
+.wyg-icon-bullhorn:before             { content: "\f0a1"; }
+.wyg-icon-bell:before                 { content: "\f0a2"; }
+.wyg-icon-certificate:before          { content: "\f0a3"; }
+.wyg-icon-hand-right:before           { content: "\f0a4"; }
+.wyg-icon-hand-left:before            { content: "\f0a5"; }
+.wyg-icon-hand-up:before              { content: "\f0a6"; }
+.wyg-icon-hand-down:before            { content: "\f0a7"; }
+.wyg-icon-circle-arrow-left:before    { content: "\f0a8"; }
+.wyg-icon-circle-arrow-right:before   { content: "\f0a9"; }
+.wyg-icon-circle-arrow-up:before      { content: "\f0aa"; }
+.wyg-icon-circle-arrow-down:before    { content: "\f0ab"; }
+.wyg-icon-globe:before                { content: "\f0ac"; }
+.wyg-icon-wrench:before               { content: "\f0ad"; }
+.wyg-icon-tasks:before                { content: "\f0ae"; }
+
+.wyg-icon-filter:before               { content: "\f0b0"; }
+.wyg-icon-briefcase:before            { content: "\f0b1"; }
+.wyg-icon-fullscreen:before           { content: "\f0b2"; }
+
+.wyg-icon-group:before                { content: "\f0c0"; }
+.wyg-icon-link:before                 { content: "\f0c1"; }
+.wyg-icon-cloud:before                { content: "\f0c2"; }
+.wyg-icon-beaker:before               { content: "\f0c3"; }
+.wyg-icon-cut:before                  { content: "\f0c4"; }
+.wyg-icon-copy:before                 { content: "\f0c5"; }
+.wyg-icon-paper-clip:before           { content: "\f0c6"; }
+.wyg-icon-save:before                 { content: "\f0c7"; }
+.wyg-icon-sign-blank:before           { content: "\f0c8"; }
+.wyg-icon-reorder:before              { content: "\f0c9"; }
+.wyg-icon-ul:before                   { content: "\f0ca"; }
+.wyg-icon-ol:before                   { content: "\f0cb"; }
+.wyg-icon-strikethrough:before        { content: "\f0cc"; }
+.wyg-icon-underline:before            { content: "\f0cd"; }
+.wyg-icon-table:before                { content: "\f0ce"; }
+
+.wyg-icon-magic:before                { content: "\f0d0"; }
+.wyg-icon-truck:before                { content: "\f0d1"; }
+.wyg-icon-pinterest:before            { content: "\f0d2"; }
+.wyg-icon-pinterest-sign:before       { content: "\f0d3"; }
+.wyg-icon-google-plus-sign:before     { content: "\f0d4"; }
+.wyg-icon-google-plus:before          { content: "\f0d5"; }
+.wyg-icon-money:before                { content: "\f0d6"; }
+.wyg-icon-caret-down:before           { content: "\f0d7"; }
+.wyg-icon-caret-up:before             { content: "\f0d8"; }
+.wyg-icon-caret-left:before           { content: "\f0d9"; }
+.wyg-icon-caret-right:before          { content: "\f0da"; }
+.wyg-icon-columns:before              { content: "\f0db"; }
+.wyg-icon-sort:before                 { content: "\f0dc"; }
+.wyg-icon-sort-down:before            { content: "\f0dd"; }
+.wyg-icon-sort-up:before              { content: "\f0de"; }
+
+.wyg-icon-envelope-alt:before         { content: "\f0e0"; }
+.wyg-icon-linkedin:before             { content: "\f0e1"; }
+.wyg-icon-undo:before                 { content: "\f0e2"; }
+.wyg-icon-legal:before                { content: "\f0e3"; }
+.wyg-icon-dashboard:before            { content: "\f0e4"; }
+.wyg-icon-comment-alt:before          { content: "\f0e5"; }
+.wyg-icon-comments-alt:before         { content: "\f0e6"; }
+.wyg-icon-bolt:before                 { content: "\f0e7"; }
+.wyg-icon-sitemap:before              { content: "\f0e8"; }
+.wyg-icon-umbrella:before             { content: "\f0e9"; }
+.wyg-icon-paste:before                { content: "\f0ea"; }
+
+.wyg-icon-user-md:before              { content: "\f200"; }
+
+
+.wyg-icon-outdent:before              { content: "\f03b"; }
+.wyg-icon-indent:before               { content: "\f03c"; }
+.wyg-icon-hr:before                   { content: "\f068"; }
+.wyg-icon-clear:before                { content: "\f05c"; }
