@@ -1,0 +1,41 @@
+var platform = require('./platform');
+
+module.exports = platform.isMac ? {
+  'Cmd+Z': 'undo',
+  'Cmd+Shift+Z': 'redo',
+  'Cmd+B': 'bold',
+  'Cmd+I': 'italic',
+  'Cmd+U': 'underline',
+  'Cmd+L': 'ol',
+  'Cmd+Shift+L': 'ul',
+  'Cmd+]': 'indent',
+  'Cmd+[': 'outdent',
+  'Cmd+1': 'h1',
+  'Cmd+2': 'h2',
+  'Cmd+3': 'h3',
+  'Cmd+4': 'h4',
+  'Cmd+5': 'h5',
+  'Cmd+6': 'h6',
+  'Cmd+0': 'p',
+  'Cmd+Shift+_': 'hr',
+  'Cmd+K': 'clear'
+} : {
+  'Ctrl+Z': 'undo',
+  'Ctrl+Y': 'redo',
+  'Ctrl+B': 'bold',
+  'Ctrl+I': 'italic',
+  'Ctrl+U': 'underline',
+  'Ctrl+L': 'ol',
+  'Ctrl+Shift+L': 'ul',
+  'Ctrl+]': 'indent',
+  'Ctrl+[': 'outdent',
+  'Ctrl+1': 'h1',
+  'Ctrl+2': 'h2',
+  'Ctrl+3': 'h3',
+  'Ctrl+4': 'h4',
+  'Ctrl+5': 'h5',
+  'Ctrl+6': 'h6',
+  'Ctrl+0': 'p',
+  'Ctrl+Shift+_': 'hr',
+  'Ctrl+K': 'clear'
+};

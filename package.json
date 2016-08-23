@@ -1,0 +1,39 @@
+{
+  "name": "wyg",
+  "version": "1.0.0",
+  "description": "A simple WYSIWYG with a popup toolbar",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacwright/wyg.git"
+  },
+  "keywords": [
+    "WYSIWYG",
+    "rich",
+    "text",
+    "contenteditable"
+  ],
+  "author": "Jacob Wright",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacwright/wyg/issues"
+  },
+  "homepage": "https://github.com/jacwright/wyg#readme",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "chai": "^3.5.0",
+    "karma": "^0.13.22",
+    "karma-browserify": "^5.0.3",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-source-map-support": "^1.1.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.6",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "es6-object-assign": "^1.0.2",
+    "shortcut-string": "^1.0.1"
+  }
+}
