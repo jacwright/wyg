@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Wyg</title>
+  <style>
+  h1, div {
+    width: 600px;
+    margin: 20px auto;
+  }
+  div {
+    padding: 10px 0;
+  }
+  .footer {
+    border: 1px solid #eee;
+    border-radius: 3px;
+  }
+  </style>
+</head>
+<body>
+<h1 id="header">Test Wyg</h1>
+<div id="body">
+  <p>This is a test</p>
+</div>
+<div id="footer" class="footer">
+
+</div>
+<script src="index.js"></script>
+<script>
+
+var header = document.getElementById('header');
+var body = document.getElementById('body');
+var footer = document.getElementById('footer');
+
+wyg.create(header);
+wyg.create(body);
+wyg.create(footer);
+
+</script>
+</body>
+</html>

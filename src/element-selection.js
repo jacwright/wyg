@@ -1,26 +1,26 @@
-module.exports = EditorSelection;
+module.exports = ElementSelection;
 var SelectionRange = require('./selection-range');
 
 /**
  * A selection helper object assigned to a Editor instance to help manage document selection
  * @param {Editor} editor An instance of an Editor
  */
-function EditorSelection(editor) {
-  this.editor = editor;
+function ElementSelection(element) {
+  this.element = element;
 }
 
 
-EditorSelection.prototype = {
-  constructor: EditorSelection,
+ElementSelection.prototype = {
+  constructor: ElementSelection,
 
-  currentRange: new SelectionRange(),
+  range: new SelectionRange(),
 
   /**
    * Get the document the editor element belongs to. When using iframes this isn't necessarily currently scoped document
    * @return {Document} The document the editor element resides in
    */
   get document() {
-    return this.editor.element.ownerDocument;
+    return this.element.ownerDocument;
   },
 
   /**
@@ -46,7 +46,7 @@ EditorSelection.prototype = {
    */
   getScopedRange: function() {
     var selection = this.getSelection();
-    if (selection.anchorNode && !this.editor.element.contains(selection.anchorNode)) {
+    if (selection.anchorNode && !this.element.contains(selection.anchorNode)) {
       selection = null;
     }
     return new SelectionRange(selection);
@@ -106,6 +106,7 @@ EditorSelection.prototype = {
    * @param {Element} element The element to start looking for the first selectable area
    */
   selectBeginning: function(element) {
+    if (!element) return;
     var document = element.ownerDocument;
     var walker = document.createTreeWalker(element, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, function(node) {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -118,12 +119,23 @@ EditorSelection.prototype = {
     });
     var node = walker.nextNode();
     if (node) {
-      if (nextNode.nodeType === Node.TEXT_NODE) {
+      if (node.nodeType === Node.TEXT_NODE) {
         this.select(node, 0);
       } else {
         this.select(node.parentNode, 0);
       }
     }
+  },
+
+  getBookmark: function(bookmark) {
+    return this.range.getBookmark(this.element);
+  },
+
+  selectBookmark: function(bookmark) {
+    var range = new SelectionRange();
+    range.restoreBookmark(this.element, bookmark);
+    range.select();
+    return range;
   },
 
 
@@ -143,14 +155,9 @@ EditorSelection.prototype = {
     var rects = range.getClientRects();
     var rect = rects[rects.length - 1];
 
-    // If we can't get the rect, insert a bit of text and get the bounding rect of that
-    // (last-ditch hack, work to remove)
+    // If we can't get the rect, get the best alternative
     if (!rect) {
-      var shadowCaret = this.document.createTextNode('|');
-      range.insertNode(shadowCaret);
-      range.selectNode(shadowCaret);
-      rect = range.getBoundingClientRect();
-      shadowCaret.parentNode.removeChild(shadowCaret);
+      rect = range.startContainer.getClientRects()[0];
     }
     return rect;
   },
@@ -164,7 +171,7 @@ EditorSelection.prototype = {
    */
   startTracking: function() {
     if (this._trackId) return;
-    var currentRange = this.currentRange = new SelectionRange();
+    var currentRange = this.range = new SelectionRange();
     var lastRange = currentRange;
     Object.freeze(currentRange);
 
@@ -174,12 +181,12 @@ EditorSelection.prototype = {
 
       if (!currentRange.equals(range)) {
         lastRange = currentRange;
-        this.currentRange = currentRange = range;
+        this.range = currentRange = range;
         Object.freeze(currentRange);
         var event = new Event('selectionchange');
         event.lastRange = lastRange;
-        event.currentRange = currentRange;
-        this.editor.element.dispatchEvent(event);
+        event.range = currentRange;
+        this.element.dispatchEvent(event);
       }
     }.bind(this));
   },
@@ -189,7 +196,7 @@ EditorSelection.prototype = {
    */
   stopTracking: function() {
     cancelAnimationFrame(this._trackId);
-    this.currentRange = new SelectionRange();
+    this.range = new SelectionRange();
     this._trackId = null;
   }
 

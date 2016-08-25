@@ -189,6 +189,7 @@ UndoManager.prototype = {
 
   // Queue a change up dispatching the event and checking if anything changes before dispatching
   _queueChange: function(records) {
+    var oldSelectionRange = this.editor.selection.range;
     this._changing = records;
     var event = new Event('changing', { cancelable: true });
     event.records = records;
@@ -208,13 +209,15 @@ UndoManager.prototype = {
       if (changed.length) {
         this._storeChange(changed);
         this.editor.element.dispatchEvent(new Event('change'));
+      } else {
+        oldSelectionRange.select();
       }
     }.bind(this));
   },
 
   // Once a change is done, store it in the undo array (merging with the last change if required)
   _storeChange: function(records) {
-    var oldSelectionRange = this.editor.selection.currentRange;
+    var oldSelectionRange = this.editor.selection.range;
     var selectionRange = this.editor.selection.getRange();
 
     var record = records[records.length - 1];

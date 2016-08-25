@@ -7,6 +7,7 @@ var ELEMENT_NODE = document.ELEMENT_NODE;
 exports.commands = {
   undo:       undo,
   redo:       redo,
+
   bold:       makeCommand('bold'),
   italic:     makeCommand('italic'),
   strike:     makeCommand('strikethrough'),
@@ -14,15 +15,14 @@ exports.commands = {
   sub:        makeCommand('subscript'),
   sup:        makeCommand('superscript'),
 
-  h1:         makeCommand('formatblock', 'h1'),
-  h2:         makeCommand('formatblock', 'h2'),
-  h3:         makeCommand('formatblock', 'h3'),
-  h4:         makeCommand('formatblock', 'h4'),
-  h5:         makeCommand('formatblock', 'h5'),
-  h6:         makeCommand('formatblock', 'h6'),
-  p:          makeCommand('formatblock', 'p'),
-  div:        makeCommand('formatblock', 'div'),
-  blockquote: makeCommand('formatblock', 'blockquote'),
+  h1:         makeFormatBlock('h1'),
+  h2:         makeFormatBlock('h2'),
+  h3:         makeFormatBlock('h3'),
+  h4:         makeFormatBlock('h4'),
+  h5:         makeFormatBlock('h5'),
+  h6:         makeFormatBlock('h6'),
+  p:          makeFormatBlock('p'),
+  blockquote: makeFormatBlock('blockquote'),
 
   ol:         makeCommand('insertorderedlist'),
   ul:         makeCommand('insertunorderedlist'),
@@ -68,6 +68,13 @@ function redo() {
   this.editor.redo();
 }
 
+
+function makeFormatBlock(tag, className) {
+  return function() {
+    this.editor.formatBlock(tag, className);
+  };
+}
+
 function makeCommand(command, param) {
   return function(userParam) {
     return this.editor.document.execCommand(command, false, param || userParam);
@@ -86,21 +93,10 @@ function checkParent(name) {
     el = nearestElement(getRangeStartNode());
 
     if (el) {
-      blockEl = getBlockElement(el);
+      blockEl = this.editor.getBlockElement(el);
       return blockEl && blockEl.tagName.toLowerCase() === name;
     }
   };
-}
-
-function getBlockElement(el) {
-  var style   = getStyle(el);
-  var display = style.display;
-
-  if (display == 'block' || display == 'table') {
-    return el;
-  } else {
-    return getBlockElement(el.parentElement);
-  }
 }
 
 function nearestElement(node) {
@@ -128,3 +124,4 @@ function getRangeStartNode() {
 
   return node;
 }
+
